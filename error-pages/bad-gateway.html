@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erreur 502 - Mauvaise passerelle</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #6b7280;
+            margin-bottom: 3rem;
+            font-weight: 400;
+        }
+
+        .diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0;
+            margin: 4rem 0;
+            position: relative;
+        }
+
+        .node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .node-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .icon-box {
+            width: 180px;
+            height: 180px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
+            background-clip: padding-box;
+        }
+
+        .icon-box.success {
+            background-color: #86efac;
+        }
+
+        .icon-box.error {
+            background-color: #fca5a5;
+        }
+
+        .icon {
+            width: 80px;
+            height: 80px;
+            fill: #1a1a1a;
+        }
+
+        .arrow {
+            width: 80px;
+            height: 4px;
+            background-color: #1a1a1a;
+            position: relative;
+            flex-shrink: 0;
+            z-index: 1;
+        }
+
+        .arrow-mobile {
+            display: none;
+        }
+
+        .text-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .label {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            text-align: center;
+        }
+
+        .sublabel {
+            font-size: 1rem;
+            color: #4b5563;
+            margin-top: 0.5rem;
+        }
+
+        .status {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .status.success {
+            color: #16a34a;
+        }
+
+        .status.error {
+            color: #dc2626;
+        }
+
+        .info-section {
+            background-color: #e5e7eb;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            border-radius: 8px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .info-block h3 {
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+
+        .info-block p {
+            font-size: 1.125rem;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .diagram {
+                flex-direction: column;
+                gap: 0;
+                align-items: stretch;
+                padding: 0 2rem;
+            }
+
+            .node {
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 1.5rem;
+                z-index: 2;
+            }
+
+            .node-content {
+                flex-direction: row;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            .icon-box {
+                width: 140px;
+                height: 140px;
+                flex-shrink: 0;
+            }
+
+            .icon {
+                width: 60px;
+                height: 60px;
+            }
+
+            .arrow {
+                display: none;
+            }
+
+            .arrow-mobile {
+                display: block;
+                width: 4px;
+                height: 60px;
+                background-color: #1a1a1a;
+                position: relative;
+                margin: 0;
+                margin-left: 70px;
+                z-index: 1;
+            }
+
+            .text-info {
+                align-items: flex-start;
+                text-align: left;
+            }
+
+            .label {
+                font-size: 1rem;
+                text-align: left;
+            }
+
+            .sublabel {
+                font-size: 0.875rem;
+                text-align: left;
+                margin-top: 0;
+            }
+
+            .status {
+                text-align: left;
+            }
+
+            .info-section {
+                padding: 2rem 1rem;
+                gap: 2rem;
+            }
+        }
+
+        a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Erreur 502</h1>
+        <h2>Mauvaise passerelle</h2>
+
+        <div class="diagram">
+            <div class="node">
+                <div class="node-content">
+                    <div class="icon-box success">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAGFklEQVR4nO2dW29VRRTHfw8WTEQIKAgYFIsQfdEmRuODfAAVoogI0aAJqUiFKOClDygStaIoyIsvXr4AETTGCx8AAwWUR65PNiriBSnViqUdM8kc0yxm9qXd53T23uuf/JPm7LXmzMy/e257rX1AoVAoFAqFQqFQKBQKhUKhKD9mATuAU8AlwCgZD20fngTeAa7PK8bdwNkIGmEqyp+Bu/LcGSoGLREl052yI4LKmprw7SyCnIygoqYmPJ5FEJ3AaRltX6dioitpakYVhAoK8gOwHLjWcRlwokB7Q/nRMkFs587w+NnP+gqwNypIvoLsf3oIKwqwNypIvoLskBPC1ALsjQqSr6CkDp5WgL1RQfIVZCfkEJYXYG9UkHwFnUiYpE8VYG9UkPwF9bkJearj8pTOzWtvKD9aKoiSwqiCEBdVEOKiCkJcVEGIiyoIcVEFIS6qIMRFhUKhUCiahome5EzNqIIQF1UQ4qIKQlxUQYiLKghxUQUhLqogxEUVhGQOAYeA94BOYDFwCzAdaAMmub/b3bWngZ1AL3BZBaGwPI19LoYsKbAvDdNcRM3nwL8qCLl5DtgCXEfxmAm8CvyugpDKi0A3cA3Nh73jXgH+UkHw8jNgXkof3ACsAnYD+13e5R9uaLvk/j7prr0PrHTZy0mw89CXKgj/cxBYm9BuG9q6wU3OYyl/xC0G1gdCZxvYIPI4aylIH3BnoL1zgV3AQMFDol15zUl4McOPdRXkDLDA086rgOeB/iZ+t503trmlssR8F99cK0GOu9WOxELg+5xlnQbucHfa6Zy+RwP/FLPrJEgfcJOnfQ8BFxKWwW8Be8TnA24j2EC7Z4jb43zPBcr+E1iaRYAqCjIYmDM6A7tpK9BzwGRgCnBeXLdDm8RGYXPe+U521/oDpwBr6ijI2oAYIx7bT93E3sB6cf2s62SJqz0v6bG+DdzoypbfN5JXFFNy7gsMU/LOGAZe8th+K+xeS+irbcL2gMfmZfdd8k5ZUgdBLno2fQs9c8bfTiSJOaLzRlI2kfPEXTfsNpUSD7thVM4p7VUXpFu0pc2zmhpOyJ1/Qtgey9Bfx4TP4wG7Rz13yhG3/K6kIL+5SVUOF9Juc0LbPxK2r2cQ5A3h82GC7Que+myqqiBbRDvmFrz7bhb70/YjpoS85DlC3xVBvbJyR9UE2SvaMKMkd8foxcj0KgmyzHOiakrGrqoIMuReRjAah4XNVtIh9xQ9ZEeP8LVlpWGr8DkYMjQl40FR/1meHfmiDB30ifB5huzoEr52tZaGBcJnJLCHmfAONjlpo0NGY5VnrZ8F3wi/B8mOJcL364x+R4XfYz4jUzJ2ivrvThEshCPC7x6y417ha586ZsFO4WdXhlfAlIz3ifrvF9dXZ+wc+b7i28iO28fyPl7gSeH3lc/IlIzzRf3PiOsdGTvnJ+E3+gQ4DXOFry0rCzqEn/cJoikZZ4j6p8VBxcxfqyDIpAq9mfufKggyWQWJizN1yIqLt4r6y4gQndRbzMUpGzy7tGz1ste++LO2y94uUX/dGE4wPxD1Xymu2+OJWI9OvhN+9s2tV8CUjIcLOlz8WPiso7mHi4uEz3DoN6lMyTjsSQU4VMLjdxt+5IUpIVeLNshgtzIweEeaEvKLkj/C7U96hJv0Iyux8jJwc8oKJmbaX/8M4v6SitLjiUK8GEG90nghQzpcZfCipwNssFrWQDkbBJeGN8cZKOeLrK8s2jyPSYdD6/0mh5Ku8ISS9mYJJa0aFrjA5tEdMRj4oZnZTQq2fsQTbH3eZebWEktduJC8U2zsr8SBHHuKLOkI3YF0hAeoOdYEEnb2uuSapIQdm5wjYT/7JSVhZ6/n+2wdnmpBe0sjylBgH7DRdbIvpc1ek9jkGYKmuDI2J6S0qRieg0A5pzRoEza3jyPpc7t7yOQr2wpW+2EqhHbPcXsaT7tE0g5PZEsae+s8gWdF48UBoRTpIjjgJvXaLW3HA7tMfbfgXX2/Ow6pzQ68GbCHe8+64G3faiyNI+4IfV3SQaGCMcFGstjAZ/tI1T79s8/IbQ5j4/VM9m/7mb1mDzHtLtz7cCkv/gMKngPV8r3n0QAAAABJRU5ErkJggg==" alt="internet-browser--v1">
+                    </div>
+                    <div class="text-info">
+                        <div class="label">Vous</div>
+                        <div class="sublabel">Navigateur internet</div>
+                        <div class="status success">OPÉRATIONNEL</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="arrow"></div>
+            <div class="arrow-mobile"></div>
+
+            <div class="node">
+                <div class="node-content">
+                    <div class="icon-box success">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAADvUlEQVR4nO2cv49NQRTHvxvso0Z4+0TiRyREolBIECJUCgoVHQUSdst9FDR0/Ad+FFQUGoXCryCxVuwuyfoZvRDxa99i/ciRSWYbuTN33tuZd8/MnE/ybTZ3zvfMOffHzr3vXkAQBEEQBEEQBKG77ABwDsBrAC0A1CW1tKfy3o4MWQHgQRcLXqZ7AJYjEzYD+MKg6PSfVE4bkTirAHxmUGwy6BOAlUiUHn2oE3PdQaJsY1BcctQWJMhFBoUlR51HgrxkUFhy1POqiyUIgiAIgiD4giJTclRdUJIGxKXkqLqgJA2IS8lRdUFJGmDXFIBBAH1aTf03l+1dcYmbbQOaBWOabW7vii1utg2oF4xZ3Ob2rtjiZtuAvoIxjTa3d8UWN9sGNAvGHAt0CrLFzbYBU7qo7VyEp7d3RS7CESk5qi4oSQPiUnJUXVCSBtg1JSvhsJRNuFkwRlbCHimbcL1gjKyEPVI24b6CMbISrvgUdCzQKSjLlfBkRCvhFhLkjcNeR0z0CglygUFhyVHq5b3k2MqgsOQo9R5bktxmUFwq0U0kzHEGBaYSqRyTZBmACQYFphJNpvimZI8+tCkS3dU5J8Nhy2TfAhh3WCf43svHtbdpG5VzEiwF8M0wyZ8A1nQQ01S0Tl4c/25ZjKnTZvTcsBRssMOYvhpQdmf0VuynogOWyY0CmMOgAbMAPLbE3I9IqetvLxRNSt2LWTuD2D4boFgN4IflIx5LECHXLIU6McPY5LkBipOWuNcRGfssk3k2g1NPyAbMBjBiib0XkbAAwHvDJH4DWO/BgwI0QLEOwC9D7I8AFiECrloKdMqTBwVqgOK0Jf4VMGeXJXn1sY65ETSgphdpJo89YMp8AO8MSf8FsMmjFwVsgGIDgD8Gjw8AFoIhly2FOePZiwI3QHHW4nMJzNhpSVZ9HnJehA2oAXhh8drt2c+ayACARx1+27OlvxV3sM1/P2sefNXYfh3LFZXjIQD3u+xr/P3M0w6SMOmJ4w+qGp59x3TMMur6Fkm3fQupeS7CtEZK9oxaIN8xB9/RCnyNDARIZlpHKvI9avHtr8jXyHDAhIbEt5yQz28nGPq2KvI1QoFlIjdfdglRZr7sEqLMfNklRJn5skuIMvNllxBl5ssuIcrMl11ClJkvu4QoM192CVFmvuwSosx82SVEmflWclPsq/iWk9tt4eGKfNk9oOjPzNdITT9O852Mitkrvm40PCfl+pC6kZmvlV59CA11eKFSYx7qGO3sCb2Z+QqCIAiCIAiCgDz4B5OzvXAp9ZdxAAAAAElFTkSuQmCC" alt="networking-manager">
+                    </div>
+                    <div class="text-info">
+                        <div class="label">Plan-les-Ouates</div>
+                        <div class="sublabel">LoutikPROXY</div>
+                        <div class="status success">OPÉRATIONNEL</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="arrow"></div>
+            <div class="arrow-mobile"></div>
+
+            <div class="node">
+                <div class="node-content">
+                    <div class="icon-box error">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAAEg0lEQVR4nO2dy2oUURCGf8FchHiJCImJBky2+giKunGTN/AWFW+4iYjiDfMamqXZiSYxRt3oTg1RQQgSDYouXJvLqNkoKTlQQtNMj9PTfU5V99QHPwQyMzlVNTP/uVR3AMMwDMMwDMMwDMMwDMNonK0ATgKYBPARwE8AVFD95BgmAJwA0AnFbABwA8CKgsSRJy0DuMaxqqIHwGsFCaJAegegD0roBfBNQVIosL5x7KK4j+JbBckgIblPfbtkAW4qSAIJ66rkbGdZQQJIWEtSs6NTCoInJRqSKMCkgsBJicYlCvBJQeCkRG6xFpwfCgInJXK5CI500KRMVgBYAZpawZEOmJTJCgArgMxAmjXuSsJAOlBeNiXE7LZkgvMhYTAHUF4OJsQ8LzGYBwmDeYTyMp0Q832JwRyt8X3ojibLxs0a8R6RGNBm3oqlGp+EgwX3hA6OIemdT5wDlwsRLimY/pGwLkKQVgCzCpJAQprlHIiyrUm3pr8C6IICrACCtDZZPxDF9Fr6K+iygiSQsNxERIQt1hUB0WnocQXBkxK5RWlwxhUETkrktmWC81FB4KRE85q2o5tRFYkCSAdNymQFQHr95o22wwB282zGaQ/vcD4G8McKAC96BqC/jjgHADy3AiD3lvJ1KWJdx5cmWQGQXbcyxDxShAIUjVYA5wHM8Kp2iX8+n7DPc19L3GXoiugF8OY/m23uAsQo3VWuBP0lMfiid0W01bmTO8uPjTIce8wXTVsRRemKGEnhG+6xUdYDmJPuijhW4K6IXQBWUxRglZ8TZR+ANf69u1xL3Xa05q6IqQZmT+45ccY4BxshhPauiBU2zSiDGV7PPTfKdgAXIIj2I8nh2HjdRdWfM7zeZ+kLs6vRxbMAUqY5Nst6jXeap6U7ADxJYcjidCsswBqbZBrjdYn/x86Uhiz6FVRrISOlsQaMN05aQxbhioJkU0yVKqvXQ3U8L05aQw6O1q6I4QaNN456Qx5SkGyK6T2AlgZXvHF876xmZkJBwimj8WYtgKgha+uKuJtxxRun3uc9hBCVEhgv5VAAMUMmxcbbBmAhYAFEDJlKYLyUUwFEDJmUGO/+2Lj6+IQqdAFW6+yyyA0qgfFSjgUIbshlMF7KuQBBDbneQELR1oDx+ihAMENOumWZ1AnYSMZPVJwsrxXEkBcUdUXsSnnG67sAQVbIE4q6IqYyJizvAgTZsj6hpCtiMIdkpTmQUWPInQq6ItoznvFG9YSL4JL/NKfX9G7I13MaKAVc8YaWV0NuD3QkuQZgrwfjDSHvhhziHziMeTLeUPJuyL0e+4N+V3kH5WW8Ubm29DssH0et3lfI7XzlSa2bODWiex6NN5r8aJH7PRQh2Aq5k8+Lx7mFPetNvo/FXv+Mh3fn7SpxjHr4O6dRAmY8JMZ97YQowAuUgGUPiVmK7eUPePo7iygBSx4SQ5zwUZavfqfvKAGvPCUnhF6iBJxTkMhGdRYloIXfSVQwqbjDYl70FOx2mTNVjk8LTyuvCV7y7IKUaZGnnafL9M43DMMwkBt/AbmnIrv1Aq+AAAAAAElFTkSuQmCC" alt="database-error">
+                    </div>
+                    <div class="text-info">
+                        <div class="label">domaine.loutik.fr</div>
+                        <div class="sublabel">Serveur</div>
+                        <div class="status error">ERREUR</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <div class="info-block">
+                <h3>Qu'est-ce qui se passe ?</h3>
+                <p>Le serveur est actuellement indisponible.</p>
+            </div>
+            <div class="info-block">
+                <h3>Que dois-je faire ?</h3>
+                <p>Ressayer dans quelques minutes et consulter l'état de nos services : <a href="https://status.loutik.fr">status.loutik.fr</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
