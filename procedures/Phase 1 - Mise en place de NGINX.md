@@ -2,7 +2,7 @@
 
 **Phase 1 – socle physique et réseau**
 
-![[logo-loutik.png]]
+![This is an alt text.](./logo-loutik.png "This is a sample image.")
 
 ---
 
