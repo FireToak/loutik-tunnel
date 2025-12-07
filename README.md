@@ -28,7 +28,7 @@ L'infrastructure initiale HomeLab de Loutik est confrontée à des contraintes c
 | Problématique Identifiée | Solution Mise en Œuvre | Outils Clés |
 | :--- | :--- | :--- |
 | **Exposition LAN / DDoS** (Risque de sécurité majeur) | Déport de l'IP publique sur un **VPS Cloud** (Point d'entrée unique). | **VPS Infomaniak** |
-| **Accès instable** (IP dynamique, CGNAT) | Réseau **Overlay VPN** résilient (WireGuard)[cite: 69]. | **Tailscale** |
+| **Accès instable** (IP dynamique, CGNAT) | Réseau **Overlay VPN** résilient (WireGuard). | **Tailscale** |
 | **Attaques Applicatives** (L7: Brute Force, Scans) | **IPS/WAF** en amont, avec une approche collaborative (CTI). | **CrowdSec**, **NGINX** |
 
 ---
@@ -67,7 +67,7 @@ Les étapes détaillées d'installation et de configuration de chaque composant 
 
 ### 1. Mise en place de Tailscale (VPN Overlay)
 Procédure pour l'installation, la configuration du Subnet Router (`--advertise-routes`) sur `gateway01-loutik`, et l'activation du routage sur `gateway01-infomaniak` (`--accept-routes`).
-* **Lien vers la procédure :** [`procédures/Phase_1_Tailscale.md`](./procédures/Phase_1_Tailscale.md)
+* **Lien vers la procédure :** [`procédures/Phase_1_Tailscale.md`](./procédures/Phase_1_Mise.md)
 
 ### 2. Installation et Configuration NGINX (Reverse Proxy)
 Procédure pour le déploiement de NGINX, la gestion modulaire des configurations (Snippets DRY [cite: 214][cite_start]), la personnalisation des pages d'erreur 502/503/504 [cite: 225][cite_start], et la gestion des certificats Wildcard via Certbot/Cloudflare.
