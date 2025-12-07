@@ -67,15 +67,15 @@ Les étapes détaillées d'installation et de configuration de chaque composant 
 
 ### 1. Mise en place de Tailscale (VPN Overlay)
 Procédure pour l'installation, la configuration du Subnet Router (`--advertise-routes`) sur `gateway01-loutik`, et l'activation du routage sur `gateway01-infomaniak` (`--accept-routes`).
-* **Lien vers la procédure :** [`procédures/Phase_1_Tailscale.md`](./procédures/Phase_1_Mise.md)
+* **Lien vers la procédure :** [`procédures/Phase_1_Tailscale.md`](./procedures/Phase_1_Tailscale.md)
 
 ### 2. Installation et Configuration NGINX (Reverse Proxy)
 Procédure pour le déploiement de NGINX, la gestion modulaire des configurations (Snippets DRY [cite: 214][cite_start]), la personnalisation des pages d'erreur 502/503/504 [cite: 225][cite_start], et la gestion des certificats Wildcard via Certbot/Cloudflare.
-* **Lien vers la procédure :** [`procédures/Phase_2_NGINX.md`](./procédures/Phase_2_NGINX.md)
+* **Lien vers la procédure :** [`procédures/Phase_2_NGINX.md`](./procedures/Phase_1_NGINX.md)
 
 ### 3. Installation de CrowdSec (IPS/WAF)
 Procédure pour l'installation du moteur d'analyse et du bouncer NGINX, permettant le blocage dynamique des attaquants au niveau réseau (`nftables`) et applicatif (logs NGINX).
-* **Lien vers la procédure :** [`procédures/Phase_3_CrowdSec.md`](./procédures/Phase_3_CrowdSec.md)
+* **Lien vers la procédure :** [`procédures/Phase_3_CrowdSec.md`](./procedures/Phase_1_Crowdsec.md)
 
 ---
 
