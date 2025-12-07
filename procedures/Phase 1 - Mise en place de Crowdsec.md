@@ -2,7 +2,7 @@
 
 **Phase 1 – socle physique et réseau**
 
-![[logo-loutik.png]]
+![This is an alt text.](./logo-loutik.png "This is a sample image.")
 
 ---
 
@@ -24,8 +24,8 @@ CrowdSec permettra d’analyser les logs système et applicatifs, de détecter a
 
 ## Sommaire
 
-A. Installation de CrowdSec sur les deux machines
-B. Vérification du fonctionnement de CrowdSec
+* A. Installation de CrowdSec sur les deux machines
+* B. Vérification du fonctionnement de CrowdSec
 
 ---
 

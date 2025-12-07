@@ -23,11 +23,11 @@ Mise en place du reverse-proxy **NGINX** pour répartir et gérer le trafic web 
 
 ## Sommaire
 
-A. Installation de NGINX
-B. Gestion des erreurs NGINX
-C. Gestion automatique des certificats
-D. Ajout du certificat dans les configurations NGINX
-E. Configuration d’un nouveau service dans NGINX
+* A. Installation de NGINX
+* B. Gestion des erreurs NGINX
+* C. Gestion automatique des certificats
+* D. Ajout du certificat dans les configurations NGINX
+* E. Configuration d’un nouveau service dans NGINX
 
 ---
 ## A. Installation de NGINX

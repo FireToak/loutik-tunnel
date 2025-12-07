@@ -23,10 +23,10 @@ Mettre en place le réseau VPN Tailscale sur les deux machines _gateway01-infoma
 
 ## Sommaire
 
-A. Installation de Tailscale sur les deux machines
-B. Configuration de Tailscale sur gateway01-loutik
-C. Configuration de Tailscale sur gateway01-infomaniak
-D. Vérification du fonctionnement
+* A. Installation de Tailscale sur les deux machines
+* B. Configuration de Tailscale sur gateway01-loutik
+* C. Configuration de Tailscale sur gateway01-infomaniak
+* D. Vérification du fonctionnement
 
 ---
 
